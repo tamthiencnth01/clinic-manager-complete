@@ -115,7 +115,7 @@ CREATE TABLE `employees` (
   KEY `FKjc1u1rm8xrg078ex7cwqpw2iq` (`departmentId`),
   KEY `FKk48peeor1mojronsq7t4441xp` (`employeeTypeId`),
   KEY `FK8begpv696yjbe76c083y5m0nt` (`positionId`)
-) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,7 +124,7 @@ CREATE TABLE `employees` (
 
 LOCK TABLES `employees` WRITE;
 /*!40000 ALTER TABLE `employees` DISABLE KEYS */;
-INSERT INTO `employees` VALUES (13,'In ea aliquid eum te','','2006-02-11','jewady@mailinator.com','Chanda Mercado','0','+1 (418) 961-5685','Placeat labore dese',2,5,10),(10,'Mollit perferendis u','','1975-12-18','rykeqynyj@mailinator.com','Drake Daugherty','0','+1 (163) 726-3952','Et nihil ea ducimus',2,5,10),(11,'Expedita aspernatur ','','1992-08-22','zucehe@mailinator.com','Khoa','0','+1 (452) 131-1186','Minus sed culpa non',2,4,3),(12,'In odio iure proiden','','1976-03-04','kytimeje@mailinator.com','Trần Hữu Nam','0','+1 (121) 203-9888','Et cupidatat praesen',2,4,12),(20,'Et accusantium qui i','','2005-05-12','zulemyzo@mailinator.com','Phoebe Sosa','0','+1 (121) 565-2723','Modi sed dolore aliq',1,1,2),(17,'Ipsam pariatur Ea s','','2020-11-16','luzis@mailinator.com','Tin Trầnzxvc','1','+1 (574) 659-6977','Rerum nulla rerum vo',2,7,7),(18,'Voluptate deserunt a','','2014-05-26','xocolu@mailinator.com','Dominiquesdssf','0','+1 (739) 119-4603','Rerum nulla rerum vo',NULL,NULL,NULL),(19,'Ut tempor dolore rat','','1972-11-08','gytamo@mailinator.com','Kibo Waters','0','+1 (994) 782-3681','In aut consequuntur ',2,5,10),(21,'Amet sint eos in q','','1996-04-17','xudenydu@mailinator.com','Hedy Blankenship','0','+1 (581) 425-1287','Dolorem sit laborum',1,3,5),(22,'Aut quo ut vero temp','','1995-06-28','tiwizyp@mailinator.com','Hiếu','1','+1 (245) 176-1991','Rerum nulla rerum vo',2,4,3),(23,'Ducimus laborum Se','','','wysuwita@mailinator.com','Phúc','0','+17581923678','Rerum nulla rerum vo',2,4,3),(24,'Cillum architecto qu','','2017-03-23','fexaja@mailinator.com','Yoko Collins','1','+1 (217) 879-5594','Rerum nulla rerum vo',1,1,2),(25,'Consectetur ullam l','','2000-04-19','xuzic@mailinator.com','Huy Anh','0','+1 (202) 404-7334','Rerum nulla rerum vo',2,6,9),(26,'Blanditiis fugiat r','','1980-03-02','kifawis@mailinator.com','Tân','1','+1 (368) 771-5775','Rerum nulla rerum vo',2,6,9),(28,'Ea asperiores omnis ','','2020-03-07','gezoq@mailinator.com','Bùi Công Bình Minh','0','+1 (266) 817-8252','Rerum nulla rerum vo',2,4,3),(29,'Rem necessitatibus u','','1997-07-22','horit@mailinator.com','Anh Hiếu','1','+1 (696) 669-7821','Rerum nulla rerum vo',2,6,9);
+INSERT INTO `employees` VALUES (30,'Qui laborum aut quid','','1990-01-18','posoqy@mailinator.com','Christiano Ronaldo','1','+1 (664) 536-3864',NULL,2,4,3),(31,'Dolor animi sed ess','','1975-01-26','loxytezuq@mailinator.com','Anh Khoa','1','+1 (517) 722-3807',NULL,2,4,3),(32,'Tempora voluptates i','','2000-12-15','nijofu@mailinator.com','Anh Phúc','0','+1 (287) 671-2008',NULL,2,6,9),(35,'Non et ipsum aliqui','','2006-02-02','byzic@mailinator.com','Anh Minh','1','+1 (263) 679-1187',NULL,2,4,3),(34,'Ut voluptatum cupida','','2010-12-09','velica@mailinator.com','Ngọc Trinh','1','+1 (159) 933-4443',NULL,1,2,8),(36,'Quo eaque deserunt c','','2018-10-29','lameciqi@mailinator.com','Anh Hiếu','1','+1 (493) 349-5783',NULL,2,4,3),(37,'Nihil numquam rerum ','','2011-04-21','nujoty@mailinator.com','Jermaine Hardy','0','+1 (826) 716-8013',NULL,1,1,2),(38,'Debitis quae minus d','','1976-01-29','vogacy@mailinator.com','Hamilton Craft','0','+1 (424) 541-5934',NULL,2,4,4),(39,'Perferendis ipsum q','','1991-09-12','nemabyp@mailinator.com','Yua Mikami','0','+1 (188) 919-1868',NULL,2,4,4),(40,'Aliquid esse odio ex','','2000-01-01','hocyfevuzy@mailinator.com','Eimi Fukada','0','+1 (737) 332-3459',NULL,1,2,15),(41,'Aspernatur ad iste u','','1997-03-08','zuvaguvivu@mailinator.com','Rola Takizawa','0','0901122334',NULL,2,6,14),(42,'Ipsam deleniti iure ','','2013-08-13','hubodazuky@mailinator.com','Quang Mập','1','+1 (631) 224-9187',NULL,1,1,2);
 /*!40000 ALTER TABLE `employees` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,7 +242,7 @@ CREATE TABLE `hibernate_sequence` (
 
 LOCK TABLES `hibernate_sequence` WRITE;
 /*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
-INSERT INTO `hibernate_sequence` VALUES (16);
+INSERT INTO `hibernate_sequence` VALUES (73);
 /*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,8 +259,10 @@ CREATE TABLE `medicalbills` (
   `symptom` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `employee_id` bigint DEFAULT NULL,
   `patient_id` bigint DEFAULT NULL,
+  `medicine_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FKcr314r8lnpby0r1wg3y8yi6in` (`employee_id`),
+  KEY `FKj56is1p7rae7rhn6gcfitempa` (`medicine_id`),
   KEY `FKoqe0avplj7inyd9govv2sp7f7` (`patient_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -271,8 +273,113 @@ CREATE TABLE `medicalbills` (
 
 LOCK TABLES `medicalbills` WRITE;
 /*!40000 ALTER TABLE `medicalbills` DISABLE KEYS */;
-INSERT INTO `medicalbills` VALUES (1,'2020','Ho',12,1),(2,'16-07-2021 16:44','Ho',12,1),(3,'16-07-2021 16:44','Ho',12,1),(4,'16-07-2021 17:03','Ho',12,1),(5,'16-07-2021 17:06','Ho Cảm,Đau Bụng',23,1),(6,'16-07-2021 17:07','Ho Cảm,Đau Bụng,Khám Đông Y',11,1),(7,'16-07-2021 17:12','Ho Cảm,Đau Bụng',28,2),(8,'16-07-2021 17:12','Chấn Thương',25,2),(9,'17-07-2021 15:17','Ho Cảm,Đau Bụng',28,3),(10,'17-07-2021 15:26','Đau Bụng,Khám Đông Y,Khám Sức Khoẻ Toàn Diện',25,3),(11,'18-07-2021 17:09','Ho Cảm,Khám Đông Y',23,4),(12,'19-07-2021 08:54','Đau Bụng',28,15),(13,'19-07-2021 09:09','Ho Cảm',29,15),(14,'19-07-2021 09:31','',22,11),(15,'19-07-2021 09:32','Chấn Thương',28,5);
+INSERT INTO `medicalbills` VALUES (66,'21-07-2021 22:45','Chấn Thương',35,9,1),(65,'21-07-2021 22:45','',35,12,1),(64,'21-07-2021 22:45','Đau Bụng',36,8,1),(63,'21-07-2021 22:45','Chấn Thương',32,6,1),(62,'21-07-2021 22:45','',36,5,1),(61,'21-07-2021 22:44','Ho Cảm',35,4,1),(60,'21-07-2021 22:44','',31,3,1),(59,'21-07-2021 22:44','Ho Cảm',30,2,1),(67,'21-07-2021 23:00','Ho Cảm',36,15,1),(68,'21-07-2021 23:14','Ho Cảm',31,13,1),(69,'21-07-2021 23:15','Ho Cảm',36,24,1),(70,'21-07-2021 23:15','Chấn Thương',30,7,2),(71,'21-07-2021 23:26','',31,2,1),(72,'22-07-2021 08:22','Ho Cảm',36,2,4);
 /*!40000 ALTER TABLE `medicalbills` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicinecategories`
+--
+
+DROP TABLE IF EXISTS `medicinecategories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicinecategories` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicinecategories`
+--
+
+LOCK TABLES `medicinecategories` WRITE;
+/*!40000 ALTER TABLE `medicinecategories` DISABLE KEYS */;
+INSERT INTO `medicinecategories` VALUES (1,'Thuốc Chống Co Giật'),(2,'Thuốc Giải Độc'),(3,'Thuốc Chống Dị Ứng'),(4,'Thuốc Giảm Đau Hạ Sốt'),(5,'Thuốc Gây Tê');
+/*!40000 ALTER TABLE `medicinecategories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicinecategories_medicines`
+--
+
+DROP TABLE IF EXISTS `medicinecategories_medicines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicinecategories_medicines` (
+  `MedicineCategory_id` bigint NOT NULL,
+  `medicines_id` bigint NOT NULL,
+  PRIMARY KEY (`MedicineCategory_id`,`medicines_id`),
+  UNIQUE KEY `UK_hv578ppccb9uckh30nlvw6pye` (`medicines_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicinecategories_medicines`
+--
+
+LOCK TABLES `medicinecategories_medicines` WRITE;
+/*!40000 ALTER TABLE `medicinecategories_medicines` DISABLE KEYS */;
+/*!40000 ALTER TABLE `medicinecategories_medicines` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicines`
+--
+
+DROP TABLE IF EXISTS `medicines`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicines` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `dailyDefaultAmount` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `howToUse` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `importPrice` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ingredients` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salePrice` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `unit` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `medicineCategory_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKkj7b20gufhb152m747e0qfwny` (`medicineCategory_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicines`
+--
+
+LOCK TABLES `medicines` WRITE;
+/*!40000 ALTER TABLE `medicines` DISABLE KEYS */;
+INSERT INTO `medicines` VALUES (1,'Ipsum dolorem velit','Laborum Neque illum','405','Libero dolore mollit','Motilium-M','Autem sit minus labo','670','Nostrud qui qui quod',2),(2,'Exercitation fuga U','Quam temporibus dele','4','Tempore sit rem dol','Montegol 5','Non rerum aut et sol','499','A magnam in dolor al',5),(3,'Reprehenderit est r','Labore aliqua Fugit','771','Veniam est ut quasi','Mixtard 30 Flexpeni','Enim eos ut asperior','590','Dicta earum dolorem ',5),(4,'10','1 ngày 3 lần','2000','Nicotine, Paradol','Paracetamol','uống sau khi ăn','10000','vỉ',4),(5,'10','uống khi đau bụng','1500','Lá Ổi','Berberin','ăn nhậu đau bụng mới uống','9500','viên',2),(6,'10','Uống Trước Khi Ăn','5000','Thuốc Dù','Amoxeceline','Ăn Trươc khi uống','15000','10',1);
+/*!40000 ALTER TABLE `medicines` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medicines_medicalbills`
+--
+
+DROP TABLE IF EXISTS `medicines_medicalbills`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `medicines_medicalbills` (
+  `Medicine_id` bigint NOT NULL,
+  `listMedicines_id` bigint NOT NULL,
+  PRIMARY KEY (`Medicine_id`,`listMedicines_id`),
+  UNIQUE KEY `UK_6xl4m747mrw0kkj1syf3ovmoe` (`listMedicines_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medicines_medicalbills`
+--
+
+LOCK TABLES `medicines_medicalbills` WRITE;
+/*!40000 ALTER TABLE `medicines_medicalbills` DISABLE KEYS */;
+/*!40000 ALTER TABLE `medicines_medicalbills` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -291,7 +398,7 @@ CREATE TABLE `patients` (
   `ward_id` bigint DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK4uep0g7kcu02sl8k9x2j5kesx` (`ward_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +407,7 @@ CREATE TABLE `patients` (
 
 LOCK TABLES `patients` WRITE;
 /*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` VALUES (1,'191779345','1980-06-16','Francesca Cross','0931935255',1),(2,'191949498','1987-05-17','Jared Schmidt','0931921655',2),(3,'456789098','1987-12-17','Lyle Castaneda','4567890987',2),(4,'573232123','2020-02-28','Claire Shepherd','2132131233',2),(5,'552312312','2019-07-24','Willow Hays','3213213232',2),(6,'252341342','1995-03-02','Davis Sherman','21343132123',2),(7,'493212321','1983-03-12','Virginia Wilkerson','43523431233',2),(8,'384312324','1974-02-14','Amena Ellison','43124523552',2),(9,'873423412','1975-04-10','Sierra Espinoza','23254555442',2),(10,'383123312','1996-09-13','Uma Wilkinson','2354234123',1),(11,'813123232','2014-11-18','Kennedy Britt','34234123123',1),(12,'383123233','2009-05-27','Hunter Juarez','3123125663',2),(13,'132132182','2015-02-14','Cain Shaw','0991919782',1),(14,'231231232','1976-01-19','Lisandra Duran','3213223323',2),(15,'191862332','1995-11-27','Tin Mập','0905707543',2);
+INSERT INTO `patients` VALUES (2,'191949498','1987-05-17','Jared Schmidt 1','0931921655',2),(3,'456789098','1987-12-17','Lyle Castaneda','4567890987',2),(4,'573232123','2020-02-28','Claire Shepherd','2132131233',2),(5,'552312312','2019-07-24','Willow Hays','3213213232',2),(6,'252341342','1995-03-02','Davis Sherman','21343132123',2),(7,'493212321','1983-03-12','Virginia Wilkerson','43523431233',2),(8,'384312324','1974-02-14','Amena Ellison','43124523552',2),(9,'873423412','1975-04-10','Sierra Espinoza','23254555442',2),(11,'813123232','2014-11-18','Kennedy Britt','34234123123',1),(12,'383123233','2009-05-27','Hunter Juarez','3123125663',2),(13,'132132182','2015-02-14','Cain Shaw','0991919782',1),(14,'231231232','1976-01-19','Lisandra Duran','3213223323',2),(15,'191862332','1995-11-27','Tin Mập','0905707543',2),(16,'231565487','1971-03-06','Chastity Hess','0931929245',1),(17,'121312321','1970-05-13','Coby Berger','0936165897',2),(18,'643232323','1996-01-12','Pandora Garrison','2312312322',2),(19,'503323232','1970-10-24','Irene Harrell','3231232323',2),(21,'523212321','1996-06-23','Thane Newton','3232132321',2),(22,'163112322','2007-06-11','Brielle Patterson','3123231232',2),(28,'732123223','1981-03-01','Tarik Herman','31231321223',1),(24,'123123212','1983-05-05','Roth Salazar','0912312321',2),(25,'832123223','1987-08-25','Jasmine Shaffer','31233212312',2),(26,'832123223','1987-08-25','Jasmine Shaffer','31233212312',2),(27,'631231323','2001-10-28','Kylee Henderson3','4323423214',1),(29,'191784226','1998-02-06','Hope Roach','0935621477',2);
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -411,4 +518,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-19 11:58:24
+-- Dump completed on 2021-07-22 10:39:47

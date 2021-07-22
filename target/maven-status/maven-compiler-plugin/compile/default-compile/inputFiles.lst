@@ -1,35 +1,58 @@
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\patient\IPatientService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\model\Department.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\department\DepartmentService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\model\Doctor.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\DoctorAPI.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\DoctorController.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\CustomSuccessHandler.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\SecurityController.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\model\Ward.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicalbill\IMedicalBillService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\DepartmentAPI.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\model\Patient.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\security\SecurityConfig.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\AppInit.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\AppConfig.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IWardRepository.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IDoctorRepository.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\patient\PatientService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\model\MedicalBill.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\department\IDepartmentService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\MedicalBillController.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IDepartmentRepository.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\doctor\IDoctorService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\WardAPI.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\PatientController.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\doctor\DoctorService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicalbill\MedicalBillService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\PatientAPI.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IMedicalBillRepository.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\MedicalBillAPI.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\IGeneralService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\ward\WardService.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IPatientRepository.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\security\SecurityInit.java
-C:\Users\Admin\Documents\GitHub\clinic-manager-case-study-4\src\main\java\com\clinic\service\ward\IWardService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicine\IMedicineService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\security\SecurityConfig.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\PositionAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\MedicineController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicineCategory\IMedicineCategoryService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\department\IDepartmentService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\EmployeeAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\DepartmentAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\employee\IEmployeeService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\SwaggerConfig.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\EmployeeTypeAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\ward\WardService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IMedicineRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\patient\PatientService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Medicine.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\MedicalBillAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\IGeneralService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IMedicalBillRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\MedicalBill.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicineCategory\MedicineCategoryService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\security\SecurityInit.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\MedicineAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IEmployeeRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Department.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Patient.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicalbill\IMedicalBillService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IPatientRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicine\MedicineService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\AppInit.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\employeeType\IEmployeeTypeService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\patient\IPatientService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IDepartmentRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\ward\IWardService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\AppConfig.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\EmployeeController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IPositionRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\MedicineCategory.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\MedicineCategoryAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\SecurityController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IMedicineCategoryRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IWardRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\employee\EmployeeService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\position\PositionService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\position\IPositionService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\repository\IEmployeeTypeRepository.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\MedicineCategoryController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Employee.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\PatientAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\EmployeeType.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\configuration\CustomAccessDeniedHandler.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\medicalbill\MedicalBillService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Ward.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\employeeType\EmployeeTypeService.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\MedicalBillController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\api\WardAPI.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\model\Position.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\controller\PatientController.java
+F:\Module 4\clinic-manager-case-study-4\src\main\java\com\clinic\service\department\DepartmentService.java
