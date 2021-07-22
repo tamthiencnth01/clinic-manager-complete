@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee management</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--    <link rel="stylesheet" href="/resource/css/bootstrap.css">-->
+    <!--    <link rel="stylesheet" href="/resource/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <!--    <link rel="stylesheet" href="/resource/css/sweetalert2.min.css">-->
+    <!--    <script type="text/javascript" src="/resource/js/sweetalert2.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/resource/js/jquery-3.6.0.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/resource/js/jquery.validate-1.19.3.min.js"></script>-->
+    <!--    <script type="text/javascript" src="/resource/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <link rel="stylesheet" href="/resource/css/style.css">-->
+    <!--    <script type="text/javascript" src="/resource/js/app.js"></script>-->
+
+    <link href="/resource/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
+    <link href="/resource/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/resource/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">
+    <link rel="stylesheet" href="/resource/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/css/style.css">
+    <link href="/resource/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resource/css/sweetalert2.min.css">
+    <!--    App JS-->
+    <script type="text/javascript" src="/resource/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery.validate-1.19.3.min.js"></script>
+    <script type="text/javascript" src="/resource/js/custom-validation.js"></script>
+    <script type="text/javascript" src="/resource/js/app.js"></script>
+    <script type="text/javascript" src="/resource/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resource/js/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="wrapper">
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+
+
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </li>
+
+            <li class="d-none d-sm-block">
+                <form class="app-search">
+                    <div class="app-search-box">
+                        <div class="input-group">
+                            <input id="searchTest" type="text" class="form-control" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <!-- end Topbar --> <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+
+        <div class="user-box">
+            <div>
+                <a href="#">Tiếp Đón</a>
+                <p class="text-muted m-0">Administrator</p>
+            </div>
+        </div>
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul class="metismenu" id="side-menu">
+
+
+                <li>
+                    <a th:href="@{home}">
+                        <i class="fas fa-user-injured"></i>
+                        <span> Quản Lý Bệnh Nhân </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{employees}">
+                        <i class="fas fa-hospital-user"></i>
+                        <span> Quản Lý Nhân Viên </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-btn">
+                        <i class="fas fa-syringe"></i>
+                        <span> Quản Lý Kho Dược </span>
+                    </a>
+                    <ul class="dropdown-container">
+                        <i class="fas fa-capsules"></i> <a th:href="@{medicines}">&nbsp Tên Thuốc</a><br>
+                        <i class="fas fa-stethoscope"></i> <a th:href="@{medicineCategories}">&nbsp Loại Thuốc</a>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start container-fluid -->
+            <div class="container-fluid">
+                <div class="success-alert">
+
+                </div>
+                <div class="box-header" style="margin-bottom: 5px">
+                    <input type="button" id="btnCreateEmployee" class="btn btn-outline-primary" value="Thêm">
+                </div>
+                <div class="box-body">
+            <textarea style="display:none" id="tempRowTable">
+            <tr id="tr_{0}">
+                <td>{1}</td>
+                <td><a class="btn btn-outline-info view" data-id="{0}">{2}</a></td>
+                <td>{3}</td>
+                <td>{5}</td>
+                <td>{6}</td>
+                <td>{10}</td>
+                <td>{11}</td>
+                <td>
+                    <a class="btn btn-outline-danger edit" data-id="{0}">
+                        <i class="fa fa-pencil-square-o fa-fw"></i>
+                        Sửa
+                    </a>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-danger delete" data-id="{0}">
+                        <i class="fa fa-trash-o"></i>
+                        Xoá
+                    </button>
+                </td>
+            </tr>
+        </textarea>
+                    <textarea style="display:none" id="tempOption">
+            <option value="{0}">{1}</option>
+        </textarea>
+                    <input type="hidden" id="currentRow"/>
+                    <table id="orderItems" class="table table-hover" border="1">
+                        <thead>
+                        <tr>
+                            <th>Avatar</th>
+                            <th>Họ và Tên</th>
+                            <th>Ngày Sinh</th>
+                            <th>Email</th>
+                            <th>Số Điện Thoại</th>
+                            <th>Khoa</th>
+                            <th>Chức Vụ</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <th:block th:replace="/employee/formEmployee :: frm-employee"></th:block>
+                <th:block th:replace="/employee/viewEmployee :: frm-viewEmployee"></th:block>
+
+
+            </div>
+            <!-- end container-fluid -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            2021 &copy; Simple theme by <a href="">Cụt Một Ngón Group</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- end content -->
+
+    </div>
+    <!-- END content-page -->
+
+</div>
+
+</body>
+
+<script type="text/javascript" src="/resource/js/custom-validation.js"></script>
+
+<script>
+    let page = {
+        urls: {
+            getAllEmployees: App.BASE_URL_EMPLOYEE,
+            getAllEmployeeTypes: App.BASE_URL_EMPLOYEETYPE,
+            getEmployee: App.BASE_URL_EMPLOYEE + '/view/',
+            save: App.BASE_URL_EMPLOYEE,
+            deleteEmployee: App.BASE_URL_EMPLOYEE,
+            getDepartments: App.BASE_URL_DEPARTMENT,
+            getDepartmentsByEmployeeType: App.BASE_URL_DEPARTMENT,
+            getPositions: App.BASE_URL_POSITION,
+            getPositionsByDepartment: App.BASE_URL_POSITION,
+        },
+        element: {},
+        loadData: {},
+        dialogs: {
+            element: {},
+            loadData: {},
+            commands: {}
+        },
+        commands: {}
+    }
+
+    page.element.btnCreateEmployee = $("#btnCreateEmployee");
+    page.element.btnUpdateEmployee = $("#btnUpdateEmployee");
+    page.element.orderItems = $("#orderItems");
+    page.element.tbody = $("#orderItems tbody");
+    page.element.employeeModal = $("#employeeModal");
+    page.element.employeeViewModal = $("#viewModal");
+    page.element.frmEmployee = $("#frmEmployee");
+    page.element.currentRow = $("#currentRow");
+
+    page.dialogs.element.avatar = $("#avatar");
+    page.dialogs.element.fullName = $("#fullName");
+    page.dialogs.element.dob = $("#dob");
+    page.dialogs.element.gender = $("input[type='radio'][name='gender']");
+    page.dialogs.element.email = $("#email");
+    page.dialogs.element.phone = $("#phone");
+    page.dialogs.element.address = $("#address");
+    page.dialogs.element.employeeType = $("#employeeType");
+    page.dialogs.element.department = $("#department");
+    page.dialogs.element.position = $("#position");
+
+    let employee = new Employee();
+    let tempRowTable = jQuery.validator.format($.trim($("#tempRowTable").val()));
+    let tempOption = jQuery.validator.format($.trim($("#tempOption").val()));
+
+    let addRow = () => {
+        page.element.tbody.prepend($(tempRowTable(employee.id, employee.avatar, employee.fullName, employee.dob, employee.gender, employee.email, employee.phone, employee.address, employee.workResume, employee.employeeType.typeName, employee.department.departmentName, employee.position.positionName)));
+    }
+
+    page.loadData.getEmployees = () => {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getAllEmployees,
+        }).done((data) => {
+            $.each(data, (i, item) => {
+                employee = item;
+                addRow();
+            });
+        }).fail(function () {
+            App.showErrorAlert("Tải danh sách thất bại !");
+        });
+    }
+
+    page.dialogs.loadData.getEmployeeTypes = () => {
+        return $.ajax({
+            type: "GET",
+            url: page.urls.getAllEmployeeTypes,
+        }).done((data) => {
+            page.dialogs.element.employeeType.empty();
+
+            $.each(data, (i, item) => {
+                page.dialogs.element.employeeType.append($(tempOption(item.id, item.typeName)));
+            });
+
+        }).fail(function () {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+    }
+
+    page.dialogs.loadData.getDepartments = (employeeTypeId) => {
+        return $.ajax({
+            type: "GET",
+            url: page.urls.getDepartmentsByEmployeeType + "/" + employeeTypeId,
+        }).done((data) => {
+            page.dialogs.element.department.empty();
+
+            $.each(data, (i, item) => {
+                page.dialogs.element.department.append($(tempOption(item.id, item.departmentName)));
+            });
+
+        }).fail(function () {
+            App.showErrorAlert("Khoa lỗi");
+        });
+    }
+
+    page.dialogs.loadData.getPositions = (departmentId) => {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getPositionsByDepartment + "/" + departmentId,
+        }).done((data) => {
+            page.dialogs.element.position.empty();
+
+            $.each(data, (i, item) => {
+                page.dialogs.element.position.append($(tempOption(item.id, item.positionName)));
+            });
+        }).fail(function () {
+            App.showErrorAlert("Chức vụ lỗi ");
+        });
+    }
+
+    page.commands.assignModal = (e) => {
+        page.dialogs.element.avatar.val(e.avatar);
+        page.dialogs.element.fullName.val(e.fullName);
+        page.dialogs.element.dob.val(e.dob);
+        page.dialogs.element.gender.filter(`[value='${e.gender}']`).click();
+        page.dialogs.element.email.val(e.email);
+        page.dialogs.element.phone.val(e.phone);
+        page.dialogs.element.address.val(e.address);
+        page.dialogs.element.employeeType.val(e.employeeType.id);
+        page.dialogs.commands.employeeTypeChange().then(function () {
+            page.dialogs.element.department.val(e.department.id);
+
+            page.dialogs.commands.departmentChange().then(function () {
+                page.dialogs.element.position.val(e.position.id);
+            });
+        });
+    }
+
+    page.commands.assignViewModal = (e) => {
+        page.dialogs.element.avatar.val(e.avatar);
+        page.dialogs.element.fullName.val(e.fullName);
+        page.dialogs.element.dob.val(e.dob);
+        page.dialogs.element.gender.filter(`[value='${e.gender}']`).click();
+        page.dialogs.element.email.val(e.email);
+        page.dialogs.element.phone.val(e.phone);
+        page.dialogs.element.address.val(e.address);
+        page.dialogs.element.employeeType.val(e.employeeType.id);
+        page.dialogs.commands.employeeTypeChange().then(function () {
+            page.dialogs.element.department.val(e.department.id);
+
+            page.dialogs.commands.departmentChange().then(function () {
+                page.dialogs.element.position.val(e.position.id);
+            });
+        });
+    }
+
+    page.commands.deleteConfirm = () => {
+        App.showDeleteConfirmDialog()
+            .then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "DELETE",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        url: page.urls.deleteEmployee,
+                        data: JSON.stringify({
+                            id: employee.id,
+                        }),
+                        success() {
+                            App.showSuccessAlert("Xóa " + employee.fullName + " thành công !");
+                            $("#tr_" + employee.id).remove();
+                        },
+                        error() {
+                            App.showErrorAlert("Xóa lỗi !");
+                        }
+                    });
+                }
+            });
+    }
+
+    page.dialogs.commands.employeeTypeChange = () => {
+        return $.ajax({
+            type: "GET",
+            url: page.urls.getDepartmentsByEmployeeType + "/" + page.dialogs.element.employeeType.val(),
+        }).done((data) => {
+            page.dialogs.element.department.empty();
+
+            $.each(data, (i, item) => {
+                page.dialogs.element.department.append($(tempOption(item.id, item.departmentName)));
+            });
+        }).fail(function () {
+            App.showErrorAlert("Nhà bao việc !");
+        });
+    }
+
+    page.dialogs.commands.departmentChange = () => {
+        return $.ajax({
+            type: "GET",
+            url: page.urls.getPositionsByDepartment + "/" + page.dialogs.element.department.val(),
+        }).done((data) => {
+            page.dialogs.element.position.empty();
+
+            $.each(data, (i, item) => {
+                page.dialogs.element.position.append($(tempOption(item.id, item.positionName)));
+            });
+        }).fail(function () {
+            App.showErrorAlert("Nhà bao việc !");
+        });
+    }
+
+    page.dialogs.commands.updateEmployee = () => {
+        employee.avatar = page.dialogs.element.avatar.val();
+        employee.fullName = page.dialogs.element.fullName.val();
+        employee.dob = page.dialogs.element.dob.val();
+        employee.gender = page.dialogs.element.gender.filter(":checked").val() === "true" ? 1 : 0;
+        employee.email = page.dialogs.element.email.val();
+        employee.phone = page.dialogs.element.phone.val();
+        employee.address = page.dialogs.element.address.val();
+        employee.employeeType = {"id": page.dialogs.element.employeeType.val()};
+        employee.department = {"id": page.dialogs.element.department.val()};
+        employee.position = {"id": page.dialogs.element.position.val()};
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: page.urls.save,
+            data: JSON.stringify(employee)
+        }).done((resp) => {
+            employee = resp;
+            let rowId = page.element.currentRow.val();
+            let updated_row = $(tempRowTable(employee.id, employee.avatar, employee.fullName, employee.dob, employee.gender, employee.email, employee.phone, employee.address, employee.workResume, employee.employeeType.typeName, employee.department.departmentName, employee.position.positionName));
+
+            if (rowId !== "") {
+                let row = page.element.tbody.find('#' + rowId);
+                row.replaceWith(updated_row);
+                page.element.currentRow.val("");
+                page.dialogs.commands.reset();
+
+                App.showSuccessAlert("Cập nhật " + employee.fullName + " thành công !");
+            } else {
+                addRow();
+                App.showSuccessAlert("Thêm mới " + employee.fullName + " thành công !");
+            }
+        }).fail(() => {
+            App.showErrorAlert("Cập nhật lỗi !");
+        });
+
+        page.element.employeeModal.modal('hide');
+    }
+
+    page.dialogs.commands.show = () => {
+        if (employee.id == null || employee.id === 0) {
+
+            page.element.employeeModal.modal('toggle');
+        } else {
+            $.ajax({
+                type: "GET",
+                url: page.urls.getEmployee + employee.id,
+            }).done((resp) => {
+                page.commands.assignModal(resp);
+                page.element.employeeModal.modal('toggle');
+            }).fail(function () {
+                App.showErrorAlert("Lỗi dữ liệu " + employee.id);
+            });
+        }
+    }
+
+    page.dialogs.commands.view = () => {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getEmployee + employee.id,
+        }).done((resp) => {
+            console.log(resp);
+            page.commands.assignViewModal(resp);
+            page.element.employeeViewModal.modal('toggle');
+        }).fail(function () {
+            App.showErrorAlert("Lỗi dữ liệu " + employee.id);
+        });
+    }
+
+    page.dialogs.commands.close = () => {
+        page.dialogs.commands.reset();
+    }
+
+    page.dialogs.commands.reset = () => {
+        page.element.frmEmployee[0].reset();
+        page.element.frmEmployee.validate().resetForm();
+        page.dialogs.element.employeeType.prop("selectedIndex", 0).change();
+    }
+
+    page.initializeControlEvent = () => {
+
+        page.element.btnCreateEmployee.on("click", () => {
+            delete employee.id;
+            page.dialogs.commands.show();
+        });
+
+        page.element.btnUpdateEmployee.on("click", () => {
+            page.element.frmEmployee.submit();
+        });
+
+        page.element.orderItems.on("click", ".view", function () {
+            employee.id = $(this).data('id');
+            page.element.currentRow.val($(this).closest("tr").attr("id"));
+            page.dialogs.commands.view();
+
+        });
+
+        page.element.orderItems.on("click", ".edit", function () {
+            employee.id = $(this).data('id');
+            page.element.currentRow.val($(this).closest("tr").attr("id"));
+            page.dialogs.commands.show();
+        });
+
+        page.element.orderItems.on("click", ".delete", function () {
+            employee.id = $(this).data('id');
+            page.commands.deleteConfirm();
+        });
+
+        page.dialogs.element.employeeType.on("change", function () {
+            page.dialogs.commands.employeeTypeChange().done(function () {
+                page.dialogs.commands.departmentChange();
+            });
+        });
+
+        page.dialogs.element.department.on("change", page.dialogs.commands.departmentChange);
+
+        page.element.employeeModal.on("hidden.bs.modal", page.dialogs.commands.close);
+    };
+
+    $(document).ready(function () {
+        page.loadData.getEmployees();
+
+        page.dialogs.loadData.getEmployeeTypes().then(function () {
+
+            let employeeTypeVal = page.dialogs.element.employeeType.prop("selectedIndex", 0).val();
+
+            if (employeeTypeVal != null) {
+                page.dialogs.loadData.getDepartments(employeeTypeVal).then(function () {
+
+                    let departmentVal = page.dialogs.element.department.prop("selectedIndex", 0).val();
+
+                    if (departmentVal != null) {
+                        page.dialogs.loadData.getPositions(departmentVal);
+                    }
+                });
+            }
+        });
+
+        page.initializeControlEvent();
+    });
+
+</script>
+<script src="/resource/js/patient.js"></script>
+<script src="/resource/libs/morris-js/morris.min.js"></script>
+<script src="/resource/libs/raphael/raphael.min.js"></script>
+<script src="/resource/js/pages/dashboard.init.js"></script>
+<!-- App js -->
+<script src="/resource/js/app.min.js"></script>
+</html>

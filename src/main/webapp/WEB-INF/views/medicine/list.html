@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Thuốc</title>
+
+    <!-- App css -->
+    <link href="/resource/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
+    <link href="/resource/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/resource/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">
+    <link rel="stylesheet" href="/resource/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/css/style.css">
+    <link href="/resource/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resource/css/sweetalert2.min.css">
+
+    <script type="text/javascript" src="/resource/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery.validate-1.19.3.min.js"></script>
+    <script type="text/javascript" src="/resource/js/app.js"></script>
+    <script type="text/javascript" src="/resource/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resource/js/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--<div id="wrapper">-->
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </li>
+            <li class="d-none d-sm-block">
+                <form class="app-search">
+                    <div class="app-search-box">
+                        <div class="input-group">
+                            <input id="searchTest" type="text" class="form-control" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <!-- end Topbar --> <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+        <div class="user-box">
+            <div>
+                <a href="#">Tiếp Đón</a>
+                <p class="text-muted m-0">Administrator</p>
+            </div>
+        </div>
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul class="metismenu" id="side-menu">
+
+
+                <li>
+                    <a th:href="@{home}">
+                        <i class="fas fa-user-injured"></i>
+                        <span> Quản Lý Bệnh Nhân </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{employees}">
+                        <i class="fas fa-hospital-user"></i>
+                        <span> Quản Lý Nhân Viên </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="dropdown-btn">
+                        <i class="fas fa-syringe"></i>
+                        <span> Quản Lý Kho Dược </span>
+                    </a>
+                    <ul class="dropdown-container">
+                        <i class="fas fa-capsules"></i> <a th:href="@{medicines}">&nbsp Tên Thuốc</a><br>
+                        <i class="fas fa-stethoscope"></i> <a th:href="@{medicineCategories}">&nbsp Loại Thuốc</a>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start container-fluid -->
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <h4 class="header-title mb-3">Welcome !</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--                            <div class="box-body">-->
+                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-plus-square"></i>
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <th:block th:replace="/medicine/createForm :: frm-create"></th:block>
+                        </div>
+                        <input type="hidden" id="currentRow">
+                        <table id="orderItems" class="table table-hover" border="1">
+                            <thead>
+                            <tr>
+                                <th>Mã Thuốc</th>
+                                <th>Tên Thuốc</th>
+                                <th>Thành Phần</th>
+                                <th>Giá Bán</th>
+                                <th>Giá Nhập</th>
+                                <th>Số Lượng Mặc Định/Ngày</th>
+                                <th>Đơn Vị</th>
+                                <th>Cách Dùng</th>
+                                <th>Ghi Chú</th>
+                                <th>Danh Mục Thuốc</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbMedicine">
+
+                            </tbody>
+                        </table>
+                        <div class="nav-btn-container">
+                            <button class="prev-btn">Prev</button>
+                            <button class="next-btn">Next</button>
+                        </div>
+                        <!--                            </div>-->
+                    </div>
+                </div>
+                <!-- end row -->
+                <th:block th:replace="/medicine/updateForm :: frm-update"></th:block>
+            </div>
+            <!-- end container-fluid -->
+
+
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            2021 &copy; Simple theme by <a href="">Cụt Một Ngón Group</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- end content -->
+
+    </div>
+    <!-- END content-page -->
+
+<!--</div>-->
+<!--    </div>-->
+<script type="text/javascript" src="/resource/js/custom-validation.js"></script>
+<script>
+    $('#searchTest').on('input',function (){
+        let a = $('#searchTest').val();
+        searchMedicines(a);
+    })
+    let page ={
+        urls: {
+            getAllMedicines: App.BASE_URL_MEDICINE,
+            getAllMedicineCategories: App.BASE_URL_MEDICINE_CATEGORY,
+            getMedicine: App.BASE_URL_MEDICINE + '/view/',
+            saveNew: App.BASE_URL_MEDICINE,
+            saveEdit: App.BASE_URL_MEDICINE,
+            deleteMedicine: App.BASE_URL_MEDICINE,
+            searchMedicineByName: App.BASE_URL_MEDICINE + '?search=',
+            pageAble: App.BASE_URL_MEDICINE + '?page='
+        }
+    }
+
+    $(function(){
+
+        let number = 0,
+            size = 2,
+            totalElements = 0;
+
+        fetchData();
+
+        // handling the prev-btn
+        $(".prev-btn").on("click", function(){
+            if (number > 0) {
+                number--;
+                fetchData();
+            }
+            console.log("Prev Page: " + number);
+        });
+
+        // handling the next-btn
+        $(".next-btn").on("click", function(){
+            if (number * size < totalElements) {
+                number++;
+                fetchData();
+            }
+            console.log("Next Page: " + number);
+        });
+
+        function fetchData(){
+            $.ajax({
+                type: "GET",
+                url: page.urls.getAllMedicines + '?page=' +number,
+            }).done((data) =>{
+                console.log(data.content);
+                var dataArr = data.content;
+                totalElements = data.totalElements;
+                let content = "";
+                for (let i = 0; i< dataArr.length; i++){
+                    medicine = dataArr[i];
+                    content += `<tr id="tr_${dataArr[i].id}">
+                                        <td>${dataArr[i].id}</td>
+                                        <td><a class="btn btn-outline-info showListHistory" data-id="${dataArr[i].id}">
+                                                                   ${dataArr[i].name}
+                                                                  </a></td>
+                                        <td>${dataArr[i].ingredients}</td>
+                                        <td>${dataArr[i].salePrice}</td>
+                                        <td>${dataArr[i].importPrice}</td>
+                                        <td>${dataArr[i].dailyDefaultAmount}</td>
+                                        <td>${dataArr[i].unit}</td>
+                                        <td>${dataArr[i].howToUse}</td>
+                                        <td>${dataArr[i].note}</td>
+                                        <td>${dataArr[i].medicineCategory.name}</td>
+                                        <td>
+                                                <a class="btn btn-outline-warning editSearch" data-id="{0}">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-danger deleteSearch" data-id="{0}">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                    </tr>`
+                }
+                $("#tbMedicine").html(content);
+            }).fail(function (){
+                App.showErrorAlert("Khong Load Duoc Trang!");
+            })
+        }
+    });
+
+    let medicine = new Medicine();
+    //Xem Danh Sach
+    let template = jQuery.validator.format($.trim($("#template").val()));
+
+    let addRow = () => {
+        $("#orderItems tbody").prepend($(template(medicine.id, medicine.name, medicine.ingredients, medicine.salePrice, medicine.importPrice, medicine.dailyDefaultAmount, medicine.unit, medicine.howToUse, medicine.note, medicine.medicineCategory.name)));
+    }
+
+    function getMedicineCategories() {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getAllMedicineCategories
+        }).done((data) => {
+            $('#frmCreateMedicine').find('select').empty();
+            $('#frmUpdateMedicine').find('select').empty();
+            $.each(data, (i, item) => {
+                $('#frmCreateMedicine').find('select').append(`<option value="${item.id}">${item.name}</option>`);
+                $('#frmUpdateMedicine').find('select').append(`<option value="${item.id}">${item.name}</option>`);
+            });
+        }).fail(function() {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+    }
+
+    function searchMedicines(search){
+        $.ajax({
+            type: "GET",
+            url: page.urls.searchMedicineByName + search
+        }).done((medicines) => {
+            let listMedicines = medicines.content;
+            let content = "";
+            for (let i = 0; i<listMedicines.length ; i++){
+                medicine = listMedicines[i];
+                content += `<tr id="tr_${listMedicines[i].id}">
+                                        <td>${listMedicines[i].id}</td>
+                                        <td><a class="btn btn-outline-info showListHistory" data-id="${listMedicines[i].id}">
+                                                                   ${listMedicines[i].name}
+                                                                  </a></td>
+                                        <td>${listMedicines[i].ingredients}</td>
+                                        <td>${listMedicines[i].salePrice}</td>
+                                        <td>${listMedicines[i].importPrice}</td>
+                                        <td>${listMedicines[i].dailyDefaultAmount}</td>
+                                        <td>${listMedicines[i].unit}</td>
+                                        <td>${listMedicines[i].howToUse}</td>
+                                        <td>${listMedicines[i].note}</td>
+                                        <td>${listMedicines[i].medicineCategory.name}</td>
+                                        <td>
+                                                <a class="btn btn-outline-warning editSearch" data-id="{0}">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-danger deleteSearch" data-id="{0}">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </td>
+                                    </tr>`
+            }
+            $("#tbMedicine").html(content);
+
+        }).fail(function () {
+            App.showErrorAlert("Khong Load Duoc Trang!");
+        })
+    }
+
+    function createMedicine() {
+        medicine.name = $("#name").val();
+        medicine.ingredients = $("#ingredients").val();
+        medicine.salePrice = $("#salePrice").val();
+        medicine.importPrice = $("#importPrice").val();
+        medicine.dailyDefaultAmount = $("#dailyDefaultAmount").val();
+        medicine.unit = $("#unit").val();
+        medicine.howToUse = $("#howToUse").val();
+        medicine.note = $("#note").val();
+        medicine.medicineCategory =  { "id": $("#medicineCategory").val() };
+        delete medicine.id;
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: page.urls.saveNew,
+            data: JSON.stringify(medicine)
+        }).done((resp) => {
+            medicine = resp;
+            addRow();
+            $('#frmCreateMedicine')[0].reset();
+            $("#frmCreateMedicine").validate().resetForm();
+            App.showSuccessAlert("Successful data generation !");
+            $('#close-modal-medicine').click();
+        }).fail(function() {
+            App.showErrorAlert("Lỗi Đăng Ký !");
+        });
+    }
+
+    function showUpdateModal() {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getMedicine + medicine.id
+        }).done((resp) => {
+            assignUpdateModal(resp);
+        }).fail(function() {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+    }
+
+    function assignUpdateModal(m) {
+        $("#upId").val(m.id);
+        $("#upName").val(m.name);
+        $("#upIngredients").val(m.ingredients);
+        $("#upSalePrice").val(m.salePrice);
+        $("#upImportPrice").val(m.importPrice);
+        $("#upDailyDefaultAmount").val(m.dailyDefaultAmount);
+        $("#upUnit").val(m.unit);
+        $("#upHowToUse").val(m.howToUse);
+        $("#upNote").val(m.note);
+        $("#upMedicineCategory").val(m.medicineCategory.id);
+        $("#updateModal").modal('toggle');
+    }
+
+    function updateMedicine() {
+        medicine.id = $("#upId").val();
+        medicine.name = $("#upName").val();
+        medicine.ingredients = $("#upIngredients").val();
+        medicine.salePrice = $("#upSalePrice").val();
+        medicine.importPrice = $("#upImportPrice").val();
+        medicine.dailyDefaultAmount = $("#upDailyDefaultAmount").val();
+        medicine.unit = $("#upUnit").val();
+        medicine.howToUse = $("#upHowToUse").val();
+        medicine.note = $("#upNote").val();
+        medicine.medicineCategory = {"id": $("#upMedicineCategory").val() };
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: page.urls.saveEdit,
+            data: JSON.stringify(medicine)
+        }).done( (resp) => {
+            medicine = resp;
+            let row = $("#orderItems tbody").find('#' + $("#currentRow").val());
+            let updated_row = $(template(medicine.id, medicine.name, medicine.ingredients, medicine.salePrice, medicine.importPrice, medicine.dailyDefaultAmount, medicine.unit, medicine.howToUse, medicine.note, medicine.medicineCategory.name));
+            row.replaceWith(updated_row);
+            $("#currentRow").val("");
+            $('#frmUpdateMedicine')[0].reset();
+            $("#frmUpdateMedicine").validate().resetForm();
+
+            App.showSuccessAlert("Data update successful !");
+        }).fail( () => {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+
+        $("#updateModal").modal('hide');
+    }
+
+    function deleteConfirm() {
+        App.showDeleteConfirmDialog()
+            .then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "DELETE",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        url: page.urls.deleteMedicine,
+                        data : JSON.stringify({
+                            id : medicine.id,
+                        }),
+                        success() {
+                            App.showSuccessAlert("Delete data successfully!");
+                            $("#tr_" + medicine.id).remove();
+                        },
+                        error() {
+                            App.showErrorAlert("An error occurred. Please try again later!");
+                        }
+                    });
+                }
+            });
+    }
+
+    $("#btnCreateMedicine").on("click", () => {
+        $("#frmCreateMedicine").submit();
+    });
+
+    $("#btnUpdateMedicine").on("click", () => {
+        $("#frmUpdateMedicine").submit();
+    });
+
+    $("#orderItems").on("click", ".edit", function () {
+        medicine.id = $(this).data('id');
+        $("#currentRow").val($(this).closest("tr").attr("id"));
+        showUpdateModal();
+    });
+
+    $("#orderItems").on("click", ".delete", function () {
+        medicine.id = $(this).data('id');
+        deleteConfirm();
+    });
+
+    $('#createModal').on('hidden.bs.modal', function () {
+        $('#frmCreateMedicine')[0].reset();
+        $('#frmCreateMedicine').validate().resetForm();
+    });
+
+    $('#updateModal').on('hidden.bs.modal', function () {
+        $('#frmUpdateMedicine')[0].reset();
+        $('#frmUpdateMedicine').validate().resetForm();
+    });
+
+    $(() => {
+        getMedicineCategories();
+    });
+</script>
+</body>
+<script src="/resource/js/patient.js"></script>
+<script src="/resource/libs/morris-js/morris.min.js"></script>
+<script src="/resource/libs/raphael/raphael.min.js"></script>
+<script src="/resource/js/pages/dashboard.init.js"></script>
+<!-- App js -->
+<script src="/resource/js/app.min.js"></script>
+</html>

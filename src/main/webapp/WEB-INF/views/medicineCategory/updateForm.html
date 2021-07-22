@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="frm-update">
+    <div id="updateModal" class="modal fade" data-bs-backdrop="true" data-bs-keyboard="true" tabindex="-1">
+        <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thay Đổi Thông Tin Danh Mục Thuốc</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Vui Lòng Nhập Chi Tiết Thông Tin Về Danh Mục Thuốc </p>
+                    <form id="frmUpdateMedicineCategory" >
+                        <div class="form-group">
+                            <label for="upName" class="form-label">Tên Danh Mục Thuốc</label>
+                            <input type="text" class="form-control" id="upName" name="upName" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="btnUpdateMedicineCategory" class="btn btn-outline-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Danh Mục Thuốc</title>
+
+    <!-- App css -->
+    <link href="/resource/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap-stylesheet">
+    <link href="/resource/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="/resource/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-stylesheet">
+    <link rel="stylesheet" href="/resource/css/bootstrap.css">
+    <link rel="stylesheet" href="/resource/css/style.css">
+    <link href="/resource/fontawesome/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resource/css/sweetalert2.min.css">
+
+    <script type="text/javascript" src="/resource/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/resource/js/jquery.validate-1.19.3.min.js"></script>
+    <script type="text/javascript" src="/resource/js/app.js"></script>
+    <script type="text/javascript" src="/resource/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/resource/js/sweetalert2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<!--<div id="wrapper">-->
+    <!-- Topbar Start -->
+    <div class="navbar-custom">
+        <ul class="list-unstyled topnav-menu float-right mb-0">
+
+        </ul>
+
+        <!-- LOGO -->
+        <div class="logo-box">
+
+        </div>
+
+        <ul class="list-unstyled topnav-menu topnav-menu-left m-0">
+            <li>
+                <button class="button-menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </li>
+
+            <li class="d-none d-sm-block">
+                <form class="app-search">
+                    <div class="app-search-box">
+                        <div class="input-group">
+                            <input id="searchTest" type="text" class="form-control" placeholder="Search...">
+                            <div class="input-group-append">
+                                <button class="btn" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <!-- end Topbar --> <!-- ========== Left Sidebar Start ========== -->
+    <div class="left-side-menu">
+
+        <div class="user-box">
+            <div>
+                <a href="#">Tiếp Đón</a>
+                <p class="text-muted m-0">Administrator</p>
+            </div>
+        </div>
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+
+            <ul class="metismenu" id="side-menu">
+
+
+                <li>
+                    <a th:href="@{home}">
+                        <i class="fas fa-user-injured"></i>
+                        <span> Quản Lý Bệnh Nhân </span>
+                    </a>
+                </li>
+
+                <li>
+                    <a th:href="@{employees}">
+                        <i class="fas fa-hospital-user"></i>
+                        <span> Quản Lý Nhân Viên </span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-btn">
+                        <i class="fas fa-syringe"></i>
+                        <span> Quản Lý Kho Dược </span>
+                    </a>
+                    <ul class="dropdown-container">
+                        <i class="fas fa-capsules"></i> <a th:href="@{medicines}">&nbsp Tên Thuốc</a><br>
+                        <i class="fas fa-stethoscope"></i> <a th:href="@{medicineCategories}">&nbsp Loại Thuốc</a>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <!-- End Sidebar -->
+
+        <div class="clearfix"></div>
+
+
+    </div>
+    <!-- Left Sidebar End -->
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+
+            <!-- Start container-fluid -->
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <h4 class="header-title mb-3">Welcome !</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <!--                            <div class="box-body">-->
+                        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
+                            <i class="fa fa-plus-square"></i>
+                        </button>
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <th:block th:replace="/medicineCategory/createForm :: frm-create"></th:block>
+                        </div>
+
+                        <textarea style="display:none" id="template">
+                            <tr id="tr_{0}">
+                                <td>{0}</td>
+                                <td><a href="/medicineCategory?action=view&id={0}">{1}</a></td>
+                                <td>
+                                    <a class="btn btn-outline-warning edit" data-id="{0}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-danger delete" data-id="{0}">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </textarea>
+                        <input type="hidden" id="currentRow">
+                        <table id="orderItems" class="table table-hover" border="1">
+                            <thead>
+                            <tr>
+                                <th>Mã Danh Mục Thuốc</th>
+                                <th>Tên Danh Mục Thuốc</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbMedicineCategory">
+
+                            </tbody>
+                        </table>
+<!--                        <div id="pageAble"></div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+                <!-- end row -->
+                <th:block th:replace="/medicineCategory/updateForm :: frm-update"></th:block>
+            </div>
+            <!-- end container-fluid -->
+
+
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            2021 &copy; Simple theme by <a href="">Cụt Một Ngón Group</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+        <!-- end content -->
+
+    </div>
+    <!-- END content-page -->
+
+<!--</div>-->
+<!--    </div>-->
+<script type="text/javascript" src="/resource/js/custom-validation.js"></script>
+<script>
+    // $('#searchTest').on('input',function (){
+    //     let a = $('#searchTest').val();
+    //     searchMedicineCategories(a);
+    // })
+    let page = {
+        urls: {
+            getAllMedicineCategories: App.BASE_URL_MEDICINE_CATEGORY,
+            getMedicineCategory: App.BASE_URL_MEDICINE_CATEGORY + '/view/',
+            saveNew: App.BASE_URL_MEDICINE_CATEGORY,
+            saveEdit: App.BASE_URL_MEDICINE_CATEGORY,
+            deleteMedicineCategory: App.BASE_URL_MEDICINE_CATEGORY
+            // searchMedicineCategoryByName: App.BASE_URL_MEDICINE_CATEGORY + '?search=',
+            // pageAble: App.BASE_URL_MEDICINE_CATEGORY + '?page='
+        }
+    }
+
+    let medicineCategory = new MedicineCategory();
+    let template = jQuery.validator.format($.trim($("#template").val()));
+
+    let addRow = () => {
+        $("#orderItems tbody").prepend($(template(medicineCategory.id, medicineCategory.name)));
+    }
+
+    function getMedicineCategories() {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getAllMedicineCategories
+        }).done((data) => {
+            $.each(data, (i, item) => {
+                medicineCategory = item;
+                addRow();
+            });
+        }).fail(function() {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+    }
+
+    // function searchMedicineCategories(search){
+    //     $.ajax({
+    //         type: "GET",
+    //         url: page.urls.searchMedicineCategoryByName + search
+    //     }).done((medicineCategories) => {
+    //         let listMedicineCategories = medicineCategories.content;
+    //         let content = "";
+    //         for (let i = 0; i< listMedicineCategories.length; i++){
+    //             medicineCategory = listMedicineCategories[i];
+    //             content += `<tr id="tr_${listMedicineCategories[i].id}">
+    //                                     <td>${listMedicineCategories[i].id}</td>
+    //                                     <td><a href="/medicineCategory?action=view&id=${listMedicineCategories[i].id}">${listMedicineCategories[i].name}</a></td>
+    //                                     <td>
+    //                                             <a class="btn btn-outline-warning editSearch" data-id="{0}">
+    //                                                 <i class="fas fa-edit"></i>
+    //                                             </a>
+    //                                         </td>
+    //                                         <td>
+    //                                             <button type="button" class="btn btn-outline-danger deleteSearch" data-id="{0}">
+    //                                                 <i class="fa fa-trash"></i>
+    //                                             </button>
+    //                                         </td>
+    //                                 </tr>`
+    //         }
+    //         $("#tbMedicineCategory").html(content);
+    //
+    //     }).fail(function () {
+    //         App.showErrorAlert("Khong Load Duoc Trang!");
+    //     })
+    // }
+
+    function createMedicineCategory() {
+        medicineCategory.name = $("#name").val();
+
+        delete medicineCategory.id;
+        console.log(medicineCategory);
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: page.urls.saveNew,
+            data: JSON.stringify(medicineCategory)
+        }).done((resp) => {
+            medicineCategory = resp;
+            addRow();
+            $('#frmCreateMedicineCategory')[0].reset();
+            $("#frmCreateMedicineCategory").validate().resetForm();
+            App.showSuccessAlert("Successful data generation !");
+        }).fail(function() {
+            App.showErrorAlert("Lỗi Đăng Ký !");
+        });
+    }
+
+    function showUpdateModal() {
+        $.ajax({
+            type: "GET",
+            url: page.urls.getMedicineCategory + medicineCategory.id
+        }).done((resp) => {
+            assignUpdateModal(resp);
+        }).fail(function() {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+    }
+
+    function assignUpdateModal(mc) {
+        $("#upName").val(mc.name);
+        $('#updateModal').modal('toggle');
+    }
+
+    function updateMedicineCategory() {
+        medicineCategory.name = $("#upName").val();
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: page.urls.saveEdit,
+            data: JSON.stringify(medicineCategory)
+        }).done( (resp) => {
+            medicineCategory = resp;
+            let row = $("#orderItems tbody").find('#' + $("#currentRow").val());
+            let updated_row = $(template(medicineCategory.id, medicineCategory.name));
+            row.replaceWith(updated_row);
+            $("#currentRow").val("");
+            $('#frmUpdateMedicineCategory')[0].reset();
+            $("#frmUpdateMedicineCategory").validate().resetForm();
+
+            App.showSuccessAlert("Data update successful !");
+        }).fail( () => {
+            App.showErrorAlert("An error occurred. Please try again later !");
+        });
+
+        $("#updateModal").modal('hide');
+    }
+
+    function deleteConfirm() {
+        App.showDeleteConfirmDialog()
+            .then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "DELETE",
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        url: page.urls.deleteMedicineCategory,
+                        data : JSON.stringify({
+                            id : medicineCategory.id,
+                        }),
+                        success() {
+                            App.showSuccessAlert("Delete data successfully!");
+                            $("#tr_" + medicineCategory.id).remove();
+                        },
+                        error() {
+                            App.showErrorAlert("An error occurred. Please try again later!");
+                        }
+                    });
+                }
+            });
+    }
+
+    $("#btnCreateMedicineCategory").on("click", () => {
+        $("#frmCreateMedicineCategory").submit();
+    });
+
+    $("#btnUpdateMedicineCategory").on("click", () => {
+        $("#frmUpdateMedicineCategory").submit();
+    });
+
+    $("#orderItems").on("click", ".edit", function () {
+        medicineCategory.id = $(this).data('id');
+        $("#currentRow").val($(this).closest("tr").attr("id"));
+        showUpdateModal();
+    });
+
+    $("#orderItems").on("click", ".delete", function () {
+        medicineCategory.id = $(this).data('id');
+        deleteConfirm();
+    });
+
+    $('#createModal').on('hidden.bs.modal', function () {
+        $('#frmCreateMedicineCategory')[0].reset();
+        $('#frmCreateMedicineCategory').validate().resetForm();
+    });
+
+    $('#updateModal').on('hidden.bs.modal', function () {
+        $('#frmUpdateMedicineCategory')[0].reset();
+        $('#frmUpdateMedicineCategory').validate().resetForm();
+    });
+
+    $(() => {
+        getMedicineCategories();
+    });
+</script>
+</body>
+<!--<script src="/resource/js/vendor.min.js"></script>-->
+<script src="/resource/js/patient.js"></script>
+<script src="/resource/libs/morris-js/morris.min.js"></script>
+<script src="/resource/libs/raphael/raphael.min.js"></script>
+<script src="/resource/js/pages/dashboard.init.js"></script>
+<!-- App js -->
+<script src="/resource/js/app.min.js"></script>
+</html>

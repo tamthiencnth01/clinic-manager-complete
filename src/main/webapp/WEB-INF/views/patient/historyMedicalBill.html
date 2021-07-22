@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="form-history-medical-bill">
+    <div id="history-medical-bill" class="modal fade" data-bs-backdrop="true" data-bs-keyboard="true" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">LỊCH SỬ KHÁM BỆNH</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formHistoryMedicalBill">
+                        <p>Tên Bệnh Nhân: <span id="patientName"></span></p>
+                        <table class="table table-hover" border="1" id="historyMedical">
+                            <thead>
+                            <tr>
+                                <th>Tên Bác Sỹ Điều Trị</th>
+                                <th>Triệu Chứng Ban Đầu</th>
+                                <th>Thuốc Đã Kê</th>
+                                <th>Ngày Giờ Đăng Ký Khám</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbHistoryMedical">
+
+                            </tbody>
+
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close-modal-historyMedicalBill"
+                            data-bs-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</th:block>
+

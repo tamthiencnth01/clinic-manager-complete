@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="frm-create">
+    <div id="createModal" class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Mới Thuốc</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Vui lòng nhập chi tiết thông tin về thuốc </p>
+                <form id="frmCreateMedicine" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Tên Thuốc</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ingredients" class="form-label">Thành Phần</label>
+                        <input type="text" class="form-control" id="ingredients" name="ingredients" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="salePrice" class="form-label">Giá Bán</label>
+                        <input type="number" class="form-control" id="salePrice" name="salePrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="importPrice" class="form-label">Giá Nhập</label>
+                        <input type="number" class="form-control" id="importPrice" name="importPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dailyDefaultAmount" class="form-label">Số Lượng Mặc Định/Ngày</label>
+                        <input type="text" class="form-control" id="dailyDefaultAmount" name="dailyDefaultAmount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="unit" class="form-label">Đơn Vị</label>
+                        <input type="text" class="form-control" id="unit" name="unit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="howToUse" class="form-label">Cách Dùng</label>
+                        <input type="text" class="form-control" id="howToUse" name="howToUse" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note" class="form-label">Ghi Chú</label>
+                        <input type="text" class="form-control" id="note" name="note" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="medicineCategory" class="form-label">Danh Mục Thuốc</label>
+                        <select id="medicineCategory" class="form-select"></select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="close-modal-medicine" data-dismiss="modal">Close</button>
+                <button type="button" id="btnCreateMedicine" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</th:block>
